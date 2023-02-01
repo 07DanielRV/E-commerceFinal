@@ -1,0 +1,57 @@
+{
+	
+	"create a redux slice": {
+		"prefix": "slice",
+		"body": [
+			"import { createSlice } from '@reduxjs/toolkit';\n",
+			"export const ${1:mySlice} = createSlice({",
+			"    name: '',",
+			"    initialState: undefined,",
+			"    reducers: {\n",
+			"    }",
+			"})\n",
+			"export const {  } = ${1:mySlice}.actions;\n",
+			"export default ${1:mySlice}.reducer;\n"
+		]
+	},
+	"create the redux store": {
+		"prefix": "store",
+		"body": [
+			"import { configureStore } from '@reduxjs/toolkit'\n",
+			"export default configureStore({",
+			"    reducer: {\n",
+			"    }",
+			"})\n"
+		]
+	},
+	"react redux index configuration": {
+		"prefix": "mainconf",
+		"body": [
+			"import React from 'react';",
+			"import ReactDOM from 'react-dom/client';",
+			"import App from './App';",
+			"import store from './store';",
+			"import { Provider } from 'react-redux';\n",
+
+			"const root = ReactDOM.createRoot(document.getElementById('root'));",
+			"root.render(",
+			"    <React.StrictMode>",
+			"        <Provider store={store}>",
+			"            <App />",
+			"        </Provider>",
+			"    </React.StrictMode>",
+			");\n"
+		]
+	},
+	"create a redux thunk": {
+		"prefix": "thunk",
+		"body": [
+			"export const ${1:thunkName} = () => (dispatch) => {",
+			"    dispatch(setIsLoading(true));",
+			"    return axios./*method*/(/* URL */)",
+			"        .then(() => dispatch(/* action */))",
+			"        .finally(() => dispatch(setIsLoading(false)));",
+			"}"
+		]
+	}
+}
